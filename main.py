@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 from OpenNIClass import OpenniClass
 
-astra = OpenniClass("/home/sark1tama/软件/OpenNI-Linux-Arm64-2.3.0.66/Redist")
+# 输入openni redist文件夹路径
+astra = OpenniClass("./OpenNI-Linux-Arm64-2.3.0.66/Redist")
 
 def mousecallback(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDBLCLK:
@@ -11,6 +12,7 @@ def mousecallback(event, x, y, flags, param):
 if __name__ == "__main__":
 
     cv2.namedWindow('depth')
+    # 单击深度图窗口获得坐标点深度值
     cv2.setMouseCallback('depth', mousecallback)
 
     while True:
